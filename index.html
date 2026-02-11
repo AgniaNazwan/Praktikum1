@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <title>My Portfolio | Agnia</title>
 
-    <!-- RESPONSIVE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,13 +45,13 @@
 
         <div class="about-box">
           <h2>About Me</h2>
-          <p>
+          <p style="text-align: justify">
             Saya memiliki kemampuan dalam pemrograman berbasis objek (Object
             Oriented Programming), perancangan antarmuka pengguna (UI/UX), serta
             pemodelan sistem menggunakan flowchart, use case diagram, dan Entity
             Relationship Diagram (ERD).
           </p>
-          <p>
+          <p style="text-align: justify">
             Saya juga terbiasa mengerjakan proyek berbasis web yang mencakup
             analisis kebutuhan, perancangan sistem, hingga implementasi dan
             pengujian.
@@ -76,62 +73,113 @@
       <section id="projects" class="section pink">
         <h2>Projects</h2>
         <ul class="project-list">
-          <li><strong>SkinMatch</strong> – Web analisis tipe kulit.</li>
-          <li><strong>TABI</strong> – Sistem pemesanan UMKM.</li>
-          <li><strong>SIKAT</strong> – Web edukasi keuangan.</li>
-          <li><strong>Web Kalkulator</strong> – Kalkulator berbasis web.</li>
-          <li><strong>Sistem Klinik</strong> – Administrasi klinik.</li>
-          <li><strong>CPU Scheduling</strong> – FCFS, SJF, RR.</li>
+          <li>
+            <strong>SkinMatch</strong> – Web interaktif untuk mengenali tipe
+            kulit wajah pengguna dan memberikan rekomendasi kandungan skincare
+            berdasarkan hasil analisis.
+          </li>
+
+          <li>
+            <strong>TABI (Tata Bisnis Terintegrasi)</strong> – Sistem berbasis
+            web untuk pengelolaan pemesanan, antrian, dan alur bisnis UMKM BDR
+            secara terintegrasi.
+          </li>
+
+          <li>
+            <strong>SIKAT (Sistem Keuangan Terpadu)</strong> – Web edukatif
+            untuk mempelajari konsep keuangan, simulasi investasi, dan simulasi
+            tabungan.
+          </li>
+
+          <li>
+            <strong>Web Kalkulator Sederhana</strong> – Aplikasi perhitungan
+            dasar berbasis web.
+          </li>
+
+          <li>
+            <strong>Sistem Administrasi Klinik</strong> – Sistem informasi
+            berbasis web untuk pengelolaan administrasi klinik.
+          </li>
+
+          <li>
+            <strong>Simulasi Penjadwalan Proses CPU</strong> – Web simulasi
+            algoritma FCFS, SJF, dan Round Robin.
+          </li>
         </ul>
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="section contact">
+      <section id="contact" class="section">
         <h2>Contact</h2>
 
         <img src="profile.png" alt="Foto Agnia" class="contact-photo" />
 
         <p>
           Instagram :
-          <a href="https://instagram.com/agnia_nzwn" target="_blank">@agnia_nzwn</a>
+          <strong>
+            <a
+              href="https://instagram.com/agnia_nzwn"
+              target="_blank"
+              style="color: inherit; text-decoration: none"
+            >
+              @agnia_nzwn
+            </a>
+          </strong>
         </p>
 
         <p>
           TikTok :
-          <a href="https://tiktok.com/@skrimkorneto" target="_blank">@skrimkorneto</a>
+          <strong>
+            <a
+              href="https://tiktok.com/@skrimkorneto"
+              target="_blank"
+              style="color: inherit; text-decoration: none"
+            >
+              @skrimkorneto
+            </a>
+          </strong>
         </p>
 
         <p>
           Email :
-          <a href="mailto:247006111076@student.unsil.ac.id">
-            247006111076@student.unsil.ac.id
-          </a>
+          <strong>
+            <a
+              href="mailto:247006111076@student.unsil.ac.id"
+              style="color: inherit; text-decoration: none"
+            >
+              247006111076@student.unsil.ac.id
+            </a>
+          </strong>
         </p>
 
         <button id="btn">Say Hello</button>
       </section>
     </main>
 
+    <!-- SCRIPT -->
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", function () {
         const text = "Agnia Nazwan Rahmatunnisa";
+        const speed = 120;
+        let index = 0;
         const typing = document.getElementById("typing-name");
-        let i = 0;
 
-        function type() {
-          if (i < text.length) {
-            typing.textContent += text[i++];
-            setTimeout(type, 120);
+        function typeEffect() {
+          if (index < text.length) {
+            typing.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, speed);
           }
         }
-        type();
 
-        document.getElementById("btn").onclick = () => {
+        typeEffect();
+
+        document.getElementById("btn").addEventListener("click", function () {
           window.open(
             "https://wa.me/6283101609541?text=Halo%20Agnia,%20saya%20melihat%20portofolio%20Anda",
-            "_blank"
+            "_blank",
           );
-        };
+        });
       });
     </script>
   </body>
